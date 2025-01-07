@@ -1,7 +1,6 @@
 ### DAY 26 ###
 
 # import random
-import tkinter
 # import time
 
 ### LIST COMPREHENSION ###
@@ -24,7 +23,7 @@ import tkinter
 # new_names = [n.upper() for n in names if len(n) > 5]
 # print(new_names)
 
-### DICTIONARY COMPREHENSION ### 
+### DICTIONARY COMPREHENSION ###
 
 # scores = {student:random.randint(1, 100) for student in names}
 # passed_students = {student:score for (student, score) in scores.items() if score >= 60}
@@ -57,24 +56,37 @@ import tkinter
 
 ### DAY 27 ###
 
+import tkinter
+
+# window = tkinter.Tk()
+#
+# window.title("D  A  Y    2 7")
+# window.minsize(width = 500, height = 500)
+#
+# my_label = tkinter.Label(window, text = "New Text", width = 20)
+# my_label.pack()
+#
+# def reset_label():
+#     my_label["text"] = "New Text"
+#
+# def buttonAction():
+#     my_label["text"] = "YOU GOT HACKED!!!"
+#     window.after(2000, reset_label)
+#
+#
+# button = tkinter.Button(window, text = "CLICK ME", command = buttonAction)
+# button.pack()
+
+
+
 window = tkinter.Tk()
+window.title("Widget Examples")
+window.minsize(500, 500)
 
-window.title("D  A  Y    2 7")
-window.minsize(width = 500, height = 500) 
+label = tkinter.Label(window, text="This is old text")
+label.config(text="This is new text")
+label.pack()
 
-my_label = tkinter.Label(window, text = "New Text", width = 20)
-my_label.pack()
-
-def reset_label():
-    my_label["text"] = "New Text"
-
-def buttonAction():
-    my_label["text"] = "YOU GOT HACKED!!!"
-    window.after(2000, reset_label)
-
-
-button = tkinter.Button(window, text = "CLICK ME", command = buttonAction)
-button.pack()
 
 
 window.mainloop()
