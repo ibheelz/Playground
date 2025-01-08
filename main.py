@@ -80,12 +80,32 @@ import tkinter
 
 
 window = tkinter.Tk()
-window.title("Widget Examples")
-window.minsize(500, 500)
+window.title("Miles to Kilometres Converter")
+window.minsize(400, 300)
+window.config(padx=100, pady=100)
 
-label = tkinter.Label(window, text="This is old text")
-label.config(text="This is new text")
+label = tkinter.Label(window, text="Miles")
 label.pack()
+
+entry = tkinter.Entry(width=8)
+entry.insert(0, "")
+entry.pack()
+
+label_01 = tkinter.Label(window, text="is equal to")
+label_01.pack()
+
+label_02 = tkinter.Label(window, text=" ")
+label_02.pack()
+
+label_03 = tkinter.Label(window, text="Kilometres")
+label_03.pack()
+
+def action():
+    x = round(float(entry.get()) * 1.60934)
+    label_02.config(text=f"{x}")
+
+button = tkinter.Button(text="Calculate", command=action)
+button.pack()
 
 
 
