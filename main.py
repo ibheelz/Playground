@@ -79,35 +79,53 @@ import tkinter
 
 
 
-window = tkinter.Tk()
-window.title("Miles to Kilometres Converter")
-window.minsize(400, 300)
-window.config(padx=100, pady=100)
+# window = tkinter.Tk()
+# window.title("Miles to Kilometres Converter")
+# window.minsize(400, 300)
+# window.config(padx=100, pady=100)
+#
+# label = tkinter.Label(window, text="Miles")
+# label.pack()
+#
+# entry = tkinter.Entry(width=8)
+# entry.insert(0, "")
+# entry.pack()
+#
+# label_01 = tkinter.Label(window, text="is equal to")
+# label_01.pack()
+#
+# label_02 = tkinter.Label(window, text=" ")
+# label_02.pack()
+#
+# label_03 = tkinter.Label(window, text="Kilometres")
+# label_03.pack()
+#
+# def action():
+#     x = round(float(entry.get()) * 1.60934)
+#     label_02.config(text=f"{x}")
+#
+# button = tkinter.Button(text="Calculate", command=action)
+# button.pack()
+#
+#
+#
+# window.mainloop()
 
-label = tkinter.Label(window, text="Miles")
-label.pack()
 
-entry = tkinter.Entry(width=8)
-entry.insert(0, "")
-entry.pack()
+# ---------------------------- CONSTANTS ------------------------------- #
+PINK = "#e2979c"
+RED = "#e7305b"
+GREEN = "#9bdeac"
+YELLOW = "#f7f5dd"
+FONT_NAME = "Courier"
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
 
-label_01 = tkinter.Label(window, text="is equal to")
-label_01.pack()
+# ---------------------------- TIMER RESET ------------------------------- #
 
-label_02 = tkinter.Label(window, text=" ")
-label_02.pack()
+# ---------------------------- TIMER MECHANISM ------------------------------- #
 
-label_03 = tkinter.Label(window, text="Kilometres")
-label_03.pack()
+# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 
-def action():
-    x = round(float(entry.get()) * 1.60934)
-    label_02.config(text=f"{x}")
-
-button = tkinter.Button(text="Calculate", command=action)
-button.pack()
-
-
-
-window.mainloop()
-
+# ---------------------------- UI SETUP ------------------------------- #
