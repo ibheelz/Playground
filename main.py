@@ -53,10 +53,13 @@
 
 
 
+# --------------------------------------------------------------------------------------------------------------------
+
+
 
 ### DAY 27 ###
 
-import tkinter
+# import tkinter
 
 # window = tkinter.Tk()
 #
@@ -76,6 +79,10 @@ import tkinter
 #
 # button = tkinter.Button(window, text = "CLICK ME", command = buttonAction)
 # button.pack()
+
+
+
+# --------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -111,6 +118,15 @@ import tkinter
 #
 # window.mainloop()
 
+
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+
+### DAY 28 ###
+
 import tkinter
 
 # ---------------------------- CONSTANTS ------------------------------- #
@@ -118,7 +134,7 @@ PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
-FONT_NAME = "Courier"
+FONT_NAME = "Klapt"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
@@ -134,11 +150,35 @@ window = tkinter.Tk()
 window.title("Timer Project")
 window.config(padx=50, pady=50, bg=YELLOW)
 
+title = tkinter.Label(text="Timer", fg="brown", bg=YELLOW)
+title.config(padx=10, pady=30)
+title.config(font=(FONT_NAME, 60, "bold"))
+title.grid(column=1, row=0)
+
 canvas = tkinter.Canvas(window, width=400, height=240, bg=YELLOW, highlightthickness=0)
 img = tkinter.PhotoImage(file="images/clock.png")
 canvas.create_image(200, 100, image=img)
-canvas.create_text(200, 100, text="00:00", font=(FONT_NAME, 80, "bold"), fill="red")
-canvas.pack()
+canvas.create_text(200, 90, text="00:00", font=(FONT_NAME, 80, "bold"), fill="red")
+canvas.grid(column=1, row=2)
+
+button_1 = tkinter.Button(text="Start", font=(FONT_NAME, 20, "bold"))
+button_1.config(bg=YELLOW, padx=5, pady=9)
+button_1.grid(column=0, row=3)
+
+button_2 = tkinter.Button(text="Reset", font=(FONT_NAME, 20, "bold"))
+button_2.config(bg=YELLOW, padx=5, pady=9)
+button_2.grid(column=2, row=3)
+
+checkmark = tkinter.Label(text="✓", fg="brown", bg=YELLOW)
+checkmark.config(padx=10, pady=10)
+checkmark.config(font=(FONT_NAME, 50, "bold"))
+checkmark.grid(column=1, row=4)
+
+
+
+
+
+
 
 
 
