@@ -111,6 +111,7 @@ import tkinter
 #
 # window.mainloop()
 
+import tkinter
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -129,3 +130,16 @@ LONG_BREAK_MIN = 20
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 
 # ---------------------------- UI SETUP ------------------------------- #
+window = tkinter.Tk()
+window.title("Timer Project")
+window.config(padx=50, pady=50, bg=YELLOW)
+
+canvas = tkinter.Canvas(window, width=400, height=240, bg=YELLOW, highlightthickness=0)
+img = tkinter.PhotoImage(file="images/clock.png")
+canvas.create_image(200, 100, image=img)
+canvas.create_text(200, 100, text="00:00", font=(FONT_NAME, 80, "bold"), fill="red")
+canvas.pack()
+
+
+
+window.mainloop()
