@@ -162,11 +162,11 @@ canvas.create_text(200, 90, text="00:00", font=(FONT_NAME, 80, "bold"), fill="re
 canvas.grid(column=1, row=2)
 
 button_1 = tkinter.Button(text="Start", font=(FONT_NAME, 20, "bold"))
-button_1.config(bg=YELLOW, padx=5, pady=9)
+button_1.config(bg=YELLOW, padx=5, pady=9, highlightthickness=0)
 button_1.grid(column=0, row=3)
 
 button_2 = tkinter.Button(text="Reset", font=(FONT_NAME, 20, "bold"))
-button_2.config(bg=YELLOW, padx=5, pady=9)
+button_2.config(bg=YELLOW, padx=5, pady=9, highlightthickness=0)
 button_2.grid(column=2, row=3)
 
 checkmark = tkinter.Label(text="✓", fg="brown", bg=YELLOW)
