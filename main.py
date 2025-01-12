@@ -150,7 +150,7 @@ window = tkinter.Tk()
 window.title("Timer Project")
 window.config(padx=50, pady=50, bg=YELLOW)
 
-title = tkinter.Label(text="Timer", fg="brown", bg=YELLOW)
+title = tkinter.Label(text="Timer Project", fg="brown", bg=YELLOW)
 title.config(padx=10, pady=30)
 title.config(font=(FONT_NAME, 60, "bold"))
 title.grid(column=1, row=0)
@@ -173,11 +173,6 @@ checkmark = tkinter.Label(text="✓", fg="brown", bg=YELLOW)
 checkmark.config(padx=10, pady=10)
 checkmark.config(font=(FONT_NAME, 50, "bold"))
 checkmark.grid(column=1, row=4)
-
-
-
-
-
 
 
 
