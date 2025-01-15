@@ -136,9 +136,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Klapt"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 reps = 0
 
 # ---------------------------- TIMER RESET ------------------------------- #
@@ -146,10 +146,21 @@ reps = 0
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
     global reps
+    reps += 1
+    print(reps)
     work_sec = WORK_MIN * 60
     short_break_sec = SHORT_BREAK_MIN * 60
     long_break_sec = LONG_BREAK_MIN * 60
-    countdown(300)
+
+    if reps % 8 == 0:
+        countdown(long_break_sec)
+        title.config(text="Long Break")
+    elif reps % 2 == 0:
+        countdown(short_break_sec)
+        title.config(text= "Short Break")
+    else:
+        countdown(work_sec)
+        title.config(text="Work Period")
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
     count_min = math.floor(count / 60)
@@ -163,6 +174,8 @@ def countdown(count):
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
         window.after(1000, countdown, count - 1)
+    else:
+        start_timer()
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()
