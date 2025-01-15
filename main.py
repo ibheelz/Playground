@@ -136,9 +136,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Klapt"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 1
-LONG_BREAK_MIN = 1
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
 reps = 0
 timer = None
 
@@ -147,7 +147,7 @@ def reset():
     global reps
     reps = 0
     window.after_cancel(timer)
-    canvas.itemconfig(timer_text, text="00:00")
+    canvas.itemconfig(timer_text, text=f"{WORK_MIN}:00")
     checkmark.config(text="")
     title.config(text=" Timer Project")
 # ---------------------------- TIMER MECHANISM ------------------------------- #
@@ -200,7 +200,7 @@ title.grid(column=1, row=0)
 canvas = tkinter.Canvas(window, width=400, height=240, bg=YELLOW, highlightthickness=0)
 img = tkinter.PhotoImage(file="images/clock.png")
 canvas.create_image(200, 100, image=img)
-timer_text = canvas.create_text(200, 90, text="00:00", font=(FONT_NAME, 80, "bold"), fill="red")
+timer_text = canvas.create_text(200, 90, text=f"{WORK_MIN}:00", font=(FONT_NAME, 80, "bold"), fill="red")
 canvas.grid(column=1, row=2)
 
 button_1 = tkinter.Button(text="Start", font=(FONT_NAME, 20, "bold"))
