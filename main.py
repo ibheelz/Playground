@@ -154,13 +154,13 @@ def start_timer():
 
     if reps % 8 == 0:
         countdown(long_break_sec)
-        title.config(text="Long Break")
+        title.config(text="Long Break", fg="black")
     elif reps % 2 == 0:
         countdown(short_break_sec)
-        title.config(text= "Short Break")
+        title.config(text= "Short Break", fg="blue")
     else:
         countdown(work_sec)
-        title.config(text="Work Period")
+        title.config(text="Work Period", fg="red")
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
     count_min = math.floor(count / 60)
