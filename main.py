@@ -140,9 +140,16 @@ WORK_MIN = 1
 SHORT_BREAK_MIN = 1
 LONG_BREAK_MIN = 1
 reps = 0
+timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- #
-
+def reset():
+    global reps
+    reps = 0
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    checkmark.config(text="")
+    title.config(text=" Timer Project")
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
     global reps
@@ -163,6 +170,7 @@ def start_timer():
         title.config(text="Work Period", fg="red")
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
+    global reps
     count_min = math.floor(count / 60)
     count_sec = count % 60
     if count_sec < 10:
@@ -173,10 +181,12 @@ def countdown(count):
         count_sec = "00"
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, countdown, count - 1)
+        global timer
+        timer = window.after(1000, countdown, count - 1)
     else:
         start_timer()
-
+        if reps % 2 == 0:
+            checkmark.config(text="✓")
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()
 window.title("Timer Project")
@@ -198,10 +208,10 @@ button_1.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=start_t
 button_1.grid(column=0, row=3)
 
 button_2 = tkinter.Button(text="Reset", font=(FONT_NAME, 20, "bold"))
-button_2.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0)
+button_2.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=reset)
 button_2.grid(column=2, row=3)
 
-checkmark = tkinter.Label(text="✓", fg="brown", bg=YELLOW)
+checkmark = tkinter.Label(text="", fg="brown", bg=YELLOW)
 checkmark.config(padx=10, pady=10)
 checkmark.config(font=(FONT_NAME, 50, "bold"))
 checkmark.grid(column=1, row=4)
