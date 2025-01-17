@@ -136,9 +136,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Klapt"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 reps = 0
 timer = None
 
@@ -184,6 +184,7 @@ def countdown(count):
     if count > 0:
         global timer
         timer = window.after(1000, countdown, count - 1)
+        window.bell()
     else:
         start_timer()
         if reps % 2 == 0:
