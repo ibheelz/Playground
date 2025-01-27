@@ -119,105 +119,117 @@
 # window.mainloop()
 
 
-
-
 # --------------------------------------------------------------------------------------------------------------------
-
 
 
 ### DAY 28 ###
 
-import tkinter
-import math
+# import tkinter
+# import math
 
 # ---------------------------- CONSTANTS ------------------------------- #
-PINK = "#e2979c"
-RED = "#e7305b"
-GREEN = "#9bdeac"
-YELLOW = "#f7f5dd"
-FONT_NAME = "Klapt"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 1
-LONG_BREAK_MIN = 1
-reps = 0
-timer = None
+# PINK = "#e2979c"
+# RED = "#e7305b"
+# GREEN = "#9bdeac"
+# YELLOW = "#f7f5dd"
+# FONT_NAME = "Klapt"
+# WORK_MIN = 25
+# SHORT_BREAK_MIN = 5
+# LONG_BREAK_MIN = 20
+# reps = 0
+# timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- #
-def reset():
-    global reps
-    reps = 0
-    window.after_cancel(timer)
-    canvas.itemconfig(timer_text, text=f"{WORK_MIN}:00")
-    checkmark.config(text="")
-    title.config(text=" Timer Project")
+# def reset():
+#     global reps
+#     reps = 0
+#     window.after_cancel(timer)
+#     canvas.itemconfig(timer_text, text=f"{WORK_MIN}:00")
+#     checkmark.config(text="")
+#     title.config(text=" Timer Project")
+
 # ---------------------------- TIMER MECHANISM ------------------------------- #
-def start_timer():
-    global reps
-    reps += 1
-    print(reps)
-    window.attributes('-topmost', 1)
-    work_sec = WORK_MIN * 60
-    short_break_sec = SHORT_BREAK_MIN * 60
-    long_break_sec = LONG_BREAK_MIN * 60
+# def start_timer():
+#     global reps
+#     reps += 1
+#     print(reps)
+#     window.attributes('-topmost', 1)
+#     work_sec = WORK_MIN * 60
+#     short_break_sec = SHORT_BREAK_MIN * 60
+#     long_break_sec = LONG_BREAK_MIN * 60
+#
+#     if reps % 8 == 0:
+#         countdown(long_break_sec)
+#         title.config(text="Long Break", fg="black")
+#     elif reps % 2 == 0:
+#         countdown(short_break_sec)
+#         title.config(text= "Short Break", fg="blue")
+#     else:
+#         countdown(work_sec)
+#         title.config(text="Work Period", fg="red")
 
-    if reps % 8 == 0:
-        countdown(long_break_sec)
-        title.config(text="Long Break", fg="black")
-    elif reps % 2 == 0:
-        countdown(short_break_sec)
-        title.config(text= "Short Break", fg="blue")
-    else:
-        countdown(work_sec)
-        title.config(text="Work Period", fg="red")
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
-def countdown(count):
-    global reps
-    count_min = math.floor(count / 60)
-    count_sec = count % 60
-    if count_sec < 10:
-        count_sec = f"0{count_sec}"
-    if count_min < 10:
-        count_min = f"0{count_min}"
-    if count_sec == 0:
-        count_sec = "00"
-    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
-    if count > 0:
-        global timer
-        timer = window.after(1000, countdown, count - 1)
-        window.bell()
-    else:
-        start_timer()
-        if reps % 2 == 0:
-            checkmark.config(text="✓")
+# def countdown(count):
+#     global reps
+#     count_min = math.floor(count / 60)
+#     count_sec = count % 60
+#     if count_sec < 10:
+#         count_sec = f"0{count_sec}"
+#     if count_min < 10:
+#         count_min = f"0{count_min}"
+#     if count_sec == 0:
+#         count_sec = "00"
+#     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
+#     if count > 0:
+#         global timer
+#         timer = window.after(1000, countdown, count - 1)
+#     else:
+#         start_timer()
+#         if reps % 2 == 0:
+#             checkmark.config(text="✓")
+
 # ---------------------------- UI SETUP ------------------------------- #
-window = tkinter.Tk()
-window.title("Timer Project")
-window.config(padx=40, pady=10, bg=YELLOW)
+# window = tkinter.Tk()
+# window.title("Timer Project")
+# window.config(padx=40, pady=10, bg=YELLOW)
+#
+# title = tkinter.Label(text="Timer Project", fg="brown", bg=YELLOW)
+# title.config(padx=10, pady=30)
+# title.config(font=(FONT_NAME, 30, "bold"))
+# title.grid(column=1, row=0)
+#
+# canvas = tkinter.Canvas(window, width=400, height=240, bg=YELLOW, highlightthickness=0)
+# img = tkinter.PhotoImage(file="images/clock.png")
+# canvas.create_image(200, 100, image=img)
+# timer_text = canvas.create_text(200, 90, text=f"{WORK_MIN}:00", font=(FONT_NAME, 80, "bold"), fill="red")
+# canvas.grid(column=1, row=2)
+#
+# button_1 = tkinter.Button(text="Start", font=(FONT_NAME, 20, "bold"))
+# button_1.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=start_timer)
+# button_1.grid(column=0, row=3)
+#
+# button_2 = tkinter.Button(text="Reset", font=(FONT_NAME, 20, "bold"))
+# button_2.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=reset)
+# button_2.grid(column=2, row=3)
+#
+# checkmark = tkinter.Label(text="", fg="brown", bg=YELLOW)
+# checkmark.config(padx=10, pady=10)
+# checkmark.config(font=(FONT_NAME, 50, "bold"))
+# checkmark.grid(column=1, row=4)
+#
+# window.mainloop()
 
-title = tkinter.Label(text="Timer Project", fg="brown", bg=YELLOW)
-title.config(padx=10, pady=30)
-title.config(font=(FONT_NAME, 30, "bold"))
-title.grid(column=1, row=0)
+### DAY 30 ###
 
-canvas = tkinter.Canvas(window, width=400, height=240, bg=YELLOW, highlightthickness=0)
-img = tkinter.PhotoImage(file="images/clock.png")
-canvas.create_image(200, 100, image=img)
-timer_text = canvas.create_text(200, 90, text=f"{WORK_MIN}:00", font=(FONT_NAME, 80, "bold"), fill="red")
-canvas.grid(column=1, row=2)
+fruits = ["Apple", "Pear", "Orange"]
 
-button_1 = tkinter.Button(text="Start", font=(FONT_NAME, 20, "bold"))
-button_1.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=start_timer)
-button_1.grid(column=0, row=3)
+# Catch the exception and make sure the code runs without crashing.
+def make_pie(index):
+    try:
+        fruit = fruits[index]
+        print(fruit + " pie")
+    except IndexError:
+        print("Fruit pie")
 
-button_2 = tkinter.Button(text="Reset", font=(FONT_NAME, 20, "bold"))
-button_2.config(bg=YELLOW, padx=5, pady=2, highlightthickness=0, command=reset)
-button_2.grid(column=2, row=3)
+make_pie(4)
 
-checkmark = tkinter.Label(text="", fg="brown", bg=YELLOW)
-checkmark.config(padx=10, pady=10)
-checkmark.config(font=(FONT_NAME, 50, "bold"))
-checkmark.grid(column=1, row=4)
-
-
-
-window.mainloop()
