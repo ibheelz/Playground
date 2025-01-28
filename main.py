@@ -242,6 +242,7 @@ facebook_posts = [
     {'Likes': 19, 'Comments': 3}
 ]
 
+
 def count_likes(posts):
     total_likes = 0
     for post in posts:
